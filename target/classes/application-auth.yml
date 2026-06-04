@@ -1,0 +1,2 @@
+lcp:
+  noAuthPaths: [/api/l-c-a-p-user:POST,/api/l-c-a-p-user-role-mapping:POST,/api/lcplogics/loaduser:POST,/api/lcplogics/loadRole:POST,/api/lcplogics/LCAPGetAllUsers:POST]

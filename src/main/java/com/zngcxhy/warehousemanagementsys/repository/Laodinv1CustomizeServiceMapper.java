@@ -1,0 +1,34 @@
+package com.zngcxhy.warehousemanagementsys.repository;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import com.zngcxhy.warehousemanagementsys.domain.enumeration.*;
+import com.zngcxhy.warehousemanagementsys.domain.*;
+import com.zngcxhy.warehousemanagementsys.web.interceptor.annotation.*;
+import com.zngcxhy.warehousemanagementsys.datasource.dynamic.DataSource;
+import org.apache.ibatis.annotations.Param;
+
+import java.math.BigDecimal;
+import java.nio.ByteBuffer;
+import java.sql.Blob;
+import java.time.LocalTime;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+
+import com.zngcxhy.warehousemanagementsys.domain.structure.*;
+import com.zngcxhy.warehousemanagementsys.domain.entities.*;
+
+/**
+* auto generate Laodinv1CustomizeService Mapper
+*
+* @author sys
+*/
+public interface Laodinv1CustomizeServiceMapper {
+
+List<com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_B0D6BA4B2283DC4DA976DAF31C826073> getAnonymousStructure_15236DED8CD807484AC741CD838A113B();
+Long countAnonymousStructure_15236DED8CD807484AC741CD838A113B();
+
+}

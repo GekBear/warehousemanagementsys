@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated AfterSalesRequestEntity Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.entities.AfterSalesRequestEntityMapper">
+    <resultMap id="BaseResultMap" type="com.zngcxhy.warehousemanagementsys.domain.entities.AfterSalesRequestEntity">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+        <result column="order_i_d" jdbcType="BIGINT" property="orderID" />
+        <result column="supplier_i_d" jdbcType="BIGINT" property="supplierID" />
+        <result column="request_type" jdbcType="VARCHAR" property="requestType" />
+        <result column="request_description" jdbcType="VARCHAR" property="requestDescription" />
+        <result column="request_status" jdbcType="VARCHAR" property="requestStatus" />
+        <result column="processresult" jdbcType="VARCHAR" property="processresult" />
+    </resultMap>
+
+    <!--
+       ###################################################
+       ######### mysql
+       ###################################################
+     -->
+    <insert id="insert" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.AfterSalesRequestEntity"  >
+        INSERT INTO `after_sales_request` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`order_i_d`
+            ,`supplier_i_d`
+            ,`request_type`
+            ,`request_description`
+            ,`request_status`
+            ,`processresult`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{orderID,jdbcType=BIGINT}
+            ,#{supplierID,jdbcType=BIGINT}
+            ,#{requestType,jdbcType=VARCHAR}
+            ,#{requestDescription,jdbcType=VARCHAR}
+            ,#{requestStatus,jdbcType=VARCHAR}
+            ,#{processresult,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="batchInsert"  parameterType="java.util.List" >
+        INSERT INTO `after_sales_request` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`order_i_d`
+            ,`supplier_i_d`
+            ,`request_type`
+            ,`request_description`
+            ,`request_status`
+            ,`processresult`
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.id,jdbcType=BIGINT}
+            ,#{item.createdTime,jdbcType=TIMESTAMP}
+            ,#{item.updatedTime,jdbcType=TIMESTAMP}
+            ,#{item.createdBy,jdbcType=VARCHAR}
+            ,#{item.updatedBy,jdbcType=VARCHAR}
+            ,#{item.orderID,jdbcType=BIGINT}
+            ,#{item.supplierID,jdbcType=BIGINT}
+            ,#{item.requestType,jdbcType=VARCHAR}
+            ,#{item.requestDescription,jdbcType=VARCHAR}
+            ,#{item.requestStatus,jdbcType=VARCHAR}
+            ,#{item.processresult,jdbcType=VARCHAR}
+         )
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.AfterSalesRequestEntity" >
+        UPDATE `after_sales_request`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('orderID')">`order_i_d` = #{bean.orderID,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('supplierID')">`supplier_i_d` = #{bean.supplierID,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('requestType')">`request_type` = #{bean.requestType,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('requestDescription')">`request_description` = #{bean.requestDescription,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('requestStatus')">`request_status` = #{bean.requestStatus,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('processresult')">`processresult` = #{bean.processresult,jdbcType=VARCHAR},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+    <!-- todo -->
+    <update id="batchUpdate" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.AfterSalesRequestEntity" >
+        UPDATE `after_sales_request`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('orderID')">`order_i_d` = #{bean.orderID,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('supplierID')">`supplier_i_d` = #{bean.supplierID,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('requestType')">`request_type` = #{bean.requestType,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('requestDescription')">`request_description` = #{bean.requestDescription,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('requestStatus')">`request_status` = #{bean.requestStatus,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('processresult')">`processresult` = #{bean.processresult,jdbcType=VARCHAR},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM `after_sales_request` where `id` = #{id}
+    </delete>
+
+
+    <delete id="batchDelete" >
+        DELETE FROM `after_sales_request` where `id` in
+        <foreach collection="list" item="pkValueItem" index="index"  separator="," open="(" close=")">
+            #{pkValueItem}
+        </foreach>
+    </delete>
+
+    <delete id="deleteReference">
+        DELETE FROM `after_sales_request`
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'orderID'">
+                    AND `order_i_d` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'supplierID'">
+                    AND `supplier_i_d` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'requestType'">
+                    AND `request_type` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'requestDescription'">
+                    AND `request_description` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'requestStatus'">
+                    AND `request_status` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'processresult'">
+                    AND `processresult` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+    </delete>
+
+    <select id="existReference" resultType="java.lang.Long" >
+        select `id` from `after_sales_request` 
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'orderID'">
+                    AND `order_i_d` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'supplierID'">
+                    AND `supplier_i_d` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'requestType'">
+                    AND `request_type` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'requestDescription'">
+                    AND `request_description` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'requestStatus'">
+                    AND `request_status` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'processresult'">
+                    AND `processresult` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+         LIMIT 1
+    </select>
+
+
+    <select id="selectOne" resultMap="BaseResultMap" >
+        select * from `after_sales_request` where `id`=#{id}
+    </select>
+
+    <select id="selectList" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter" resultMap="BaseResultMap" >
+        select * from `after_sales_request`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <select id="count" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter" resultType="java.lang.Integer" >
+        select count(1) from `after_sales_request`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <insert id="createOrUpdate" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.AfterSalesRequestEntity">
+        INSERT INTO `after_sales_request` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`order_i_d`
+            ,`supplier_i_d`
+            ,`request_type`
+            ,`request_description`
+            ,`request_status`
+            ,`processresult`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{orderID,jdbcType=BIGINT}
+            ,#{supplierID,jdbcType=BIGINT}
+            ,#{requestType,jdbcType=VARCHAR}
+            ,#{requestDescription,jdbcType=VARCHAR}
+            ,#{requestStatus,jdbcType=VARCHAR}
+            ,#{processresult,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+    <update id="updateBy">
+        UPDATE `after_sales_request`
+        <set>
+        <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('orderID')">`order_i_d` = #{bean.orderID,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('supplierID')">`supplier_i_d` = #{bean.supplierID,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('requestType')">`request_type` = #{bean.requestType,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('requestDescription')">`request_description` = #{bean.requestDescription,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('requestStatus')">`request_status` = #{bean.requestStatus,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('processresult')">`processresult` = #{bean.processresult,jdbcType=VARCHAR},</if>
+        </set>
+        where ${filter.sql("mysql")}
+    </update>
+
+    <delete id="deleteBy" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter">
+        DELETE FROM `after_sales_request` where ${filter.sql("mysql")}
+    </delete>
+</mapper>

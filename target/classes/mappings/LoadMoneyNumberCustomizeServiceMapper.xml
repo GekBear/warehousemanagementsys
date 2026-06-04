@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadMoneyNumberCustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LoadMoneyNumberCustomizeServiceMapper">
+
+    <select id="getStructure1" resultType="java.math.BigDecimal">
+	 SELECT SUM(`purchase_order_detai`.`total_amount`) `amout` FROM `purchase_order` LEFT JOIN `purchase_order_detai` ON `purchase_order`.`id` = `purchase_order_detai`.`order_i_d` 
+<if test=" 1==1 and supllierId!=null ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`purchase_order`.`supplier_i_d` = #{supllierId}
+</trim>
+</if> 
+<if test=" 1==1 ">
+	 LIMIT ${( 1000 * ( 1 - 1 ) )}, ${1000}
+</if>
+</select>
+
+
+</mapper>

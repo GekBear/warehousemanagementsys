@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadOrderNumberCustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LoadOrderNumberCustomizeServiceMapper">
+
+    <select id="getStructure1" resultType="java.lang.Long">
+	 SELECT COUNT(`purchase_order`.`id`) `orderNumber` FROM `purchase_order` 
+<if test=" 1==1 or supllierId!=null ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	
+<if test=" 1==1 and supllierId!=null ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`purchase_order`.`supplier_i_d` = #{supllierId}
+</trim>
+</if> 
+<if test=" 1==1 ">
+	
+<trim prefix="and">
+	(`purchase_order`.`order_status` != '4')
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" 1==1 ">
+	 LIMIT ${( 1000 * ( 1 - 1 ) )}, ${1000}
+</if>
+</select>
+
+
+</mapper>

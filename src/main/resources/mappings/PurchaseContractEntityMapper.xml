@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated PurchaseContractEntity Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.entities.PurchaseContractEntityMapper">
+    <resultMap id="BaseResultMap" type="com.zngcxhy.warehousemanagementsys.domain.entities.PurchaseContractEntity">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+        <result column="order_i_d" jdbcType="BIGINT" property="orderID" />
+        <result column="contract_amount" jdbcType="DECIMAL" property="contractAmount" />
+        <result column="contract_status" jdbcType="VARCHAR" property="contractStatus" />
+        <result column="contract_file" jdbcType="VARCHAR" property="contractFile" />
+        <result column="contract_name" jdbcType="VARCHAR" property="contractName" />
+    </resultMap>
+
+    <!--
+       ###################################################
+       ######### mysql
+       ###################################################
+     -->
+    <insert id="insert" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.PurchaseContractEntity"  >
+        INSERT INTO `purchase_contract` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`order_i_d`
+            ,`contract_amount`
+            ,`contract_status`
+            ,`contract_file`
+            ,`contract_name`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{orderID,jdbcType=BIGINT}
+            ,#{contractAmount,jdbcType=DECIMAL}
+            ,#{contractStatus,jdbcType=VARCHAR}
+            ,#{contractFile,jdbcType=VARCHAR}
+            ,#{contractName,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="batchInsert"  parameterType="java.util.List" >
+        INSERT INTO `purchase_contract` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`order_i_d`
+            ,`contract_amount`
+            ,`contract_status`
+            ,`contract_file`
+            ,`contract_name`
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.id,jdbcType=BIGINT}
+            ,#{item.createdTime,jdbcType=TIMESTAMP}
+            ,#{item.updatedTime,jdbcType=TIMESTAMP}
+            ,#{item.createdBy,jdbcType=VARCHAR}
+            ,#{item.updatedBy,jdbcType=VARCHAR}
+            ,#{item.orderID,jdbcType=BIGINT}
+            ,#{item.contractAmount,jdbcType=DECIMAL}
+            ,#{item.contractStatus,jdbcType=VARCHAR}
+            ,#{item.contractFile,jdbcType=VARCHAR}
+            ,#{item.contractName,jdbcType=VARCHAR}
+         )
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.PurchaseContractEntity" >
+        UPDATE `purchase_contract`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('orderID')">`order_i_d` = #{bean.orderID,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('contractAmount')">`contract_amount` = #{bean.contractAmount,jdbcType=DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('contractStatus')">`contract_status` = #{bean.contractStatus,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('contractFile')">`contract_file` = #{bean.contractFile,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('contractName')">`contract_name` = #{bean.contractName,jdbcType=VARCHAR},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+    <!-- todo -->
+    <update id="batchUpdate" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.PurchaseContractEntity" >
+        UPDATE `purchase_contract`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('orderID')">`order_i_d` = #{bean.orderID,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('contractAmount')">`contract_amount` = #{bean.contractAmount,jdbcType=DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('contractStatus')">`contract_status` = #{bean.contractStatus,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('contractFile')">`contract_file` = #{bean.contractFile,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('contractName')">`contract_name` = #{bean.contractName,jdbcType=VARCHAR},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM `purchase_contract` where `id` = #{id}
+    </delete>
+
+
+    <delete id="batchDelete" >
+        DELETE FROM `purchase_contract` where `id` in
+        <foreach collection="list" item="pkValueItem" index="index"  separator="," open="(" close=")">
+            #{pkValueItem}
+        </foreach>
+    </delete>
+
+    <delete id="deleteReference">
+        DELETE FROM `purchase_contract`
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'orderID'">
+                    AND `order_i_d` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'contractAmount'">
+                    AND `contract_amount` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'contractStatus'">
+                    AND `contract_status` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'contractFile'">
+                    AND `contract_file` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'contractName'">
+                    AND `contract_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+    </delete>
+
+    <select id="existReference" resultType="java.lang.Long" >
+        select `id` from `purchase_contract` 
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'orderID'">
+                    AND `order_i_d` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'contractAmount'">
+                    AND `contract_amount` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'contractStatus'">
+                    AND `contract_status` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'contractFile'">
+                    AND `contract_file` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'contractName'">
+                    AND `contract_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+         LIMIT 1
+    </select>
+
+
+    <select id="selectOne" resultMap="BaseResultMap" >
+        select * from `purchase_contract` where `id`=#{id}
+    </select>
+
+    <select id="selectList" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter" resultMap="BaseResultMap" >
+        select * from `purchase_contract`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <select id="count" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter" resultType="java.lang.Integer" >
+        select count(1) from `purchase_contract`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <insert id="createOrUpdate" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.PurchaseContractEntity">
+        INSERT INTO `purchase_contract` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`order_i_d`
+            ,`contract_amount`
+            ,`contract_status`
+            ,`contract_file`
+            ,`contract_name`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{orderID,jdbcType=BIGINT}
+            ,#{contractAmount,jdbcType=DECIMAL}
+            ,#{contractStatus,jdbcType=VARCHAR}
+            ,#{contractFile,jdbcType=VARCHAR}
+            ,#{contractName,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+    <update id="updateBy">
+        UPDATE `purchase_contract`
+        <set>
+        <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('orderID')">`order_i_d` = #{bean.orderID,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('contractAmount')">`contract_amount` = #{bean.contractAmount,jdbcType=DECIMAL},</if>
+        <if test="updateFields == null or updateFields.contains('contractStatus')">`contract_status` = #{bean.contractStatus,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('contractFile')">`contract_file` = #{bean.contractFile,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('contractName')">`contract_name` = #{bean.contractName,jdbcType=VARCHAR},</if>
+        </set>
+        where ${filter.sql("mysql")}
+    </update>
+
+    <delete id="deleteBy" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter">
+        DELETE FROM `purchase_contract` where ${filter.sql("mysql")}
+    </delete>
+</mapper>

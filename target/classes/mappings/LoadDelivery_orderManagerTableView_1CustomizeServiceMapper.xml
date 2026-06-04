@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadDelivery_orderManagerTableView_1CustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LoadDelivery_orderManagerTableView_1CustomizeServiceMapper">
+
+    <resultMap id="AnonymousStructure_89B0C97E88C1D12537DDD2C5E5CDB937" type="com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_5BFE9D1921AC7A0CDB712B5358BCC1D5">
+	<id column="T1_C1" property="delivery_order.id"/>
+	<result column="T1_C2" property="delivery_order.createdTime"/>
+	<result column="T1_C3" property="delivery_order.updatedTime"/>
+	<result column="T1_C4" property="delivery_order.createdBy"/>
+	<result column="T1_C5" property="delivery_order.updatedBy"/>
+	<result column="T1_C6" property="delivery_order.delivery_order"/>
+</resultMap>
+<select id="getAnonymousStructure_89B0C97E88C1D12537DDD2C5E5CDB937" resultMap="AnonymousStructure_89B0C97E88C1D12537DDD2C5E5CDB937">
+	 SELECT `delivery_order`.`id` `T1_C1`,`delivery_order`.`created_time` `T1_C2`,`delivery_order`.`updated_time` `T1_C3`,`delivery_order`.`created_by` `T1_C4`,`delivery_order`.`updated_by` `T1_C5`,`delivery_order`.`delivery_order` `T1_C6` FROM `delivery_order` 
+<if test=" ( filter!=null and filter.delivery_order!=null ) and 1==1 ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`delivery_order`.`delivery_order` LIKE concat('%', concat(#{filter.delivery_order}, '%'))
+</trim>
+</if> 
+<if test=" sort!=null ">
+	
+<trim prefix = "ORDER BY" suffixOverrides=",">
+	
+<if test=" sort!=null ">
+	
+<trim suffix=",">
+	${sort} 
+<if test=" order!=null ">
+	${@com.zngcxhy.warehousemanagementsys.util.SqlInjectCheckUtil@checkAscOrDesc(order)}
+</if>
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" 1==1 and page!=null and size!=null ">
+	 LIMIT ${( size * ( page - 1 ) )}, ${size}
+</if>
+</select>
+<select id="countAnonymousStructure_89B0C97E88C1D12537DDD2C5E5CDB937" resultType="java.lang.Long">
+	SELECT COUNT(*) FROM `delivery_order` 
+<if test=" ( filter!=null and filter.delivery_order!=null ) and 1==1 ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`delivery_order`.`delivery_order` LIKE concat('%', concat(#{filter.delivery_order}, '%'))
+</trim>
+</if>
+</select>
+
+
+</mapper>

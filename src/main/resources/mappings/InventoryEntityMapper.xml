@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated InventoryEntity Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.entities.InventoryEntityMapper">
+    <resultMap id="BaseResultMap" type="com.zngcxhy.warehousemanagementsys.domain.entities.InventoryEntity">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+        <result column="product_id" jdbcType="BIGINT" property="productId" />
+        <result column="supplier_id" jdbcType="BIGINT" property="supplierId" />
+        <result column="shelf_id" jdbcType="BIGINT" property="shelfId" />
+        <result column="productnumber" jdbcType="BIGINT" property="productnumber" />
+        <result column="inwarehouse_id" jdbcType="BIGINT" property="inwarehouseId" />
+    </resultMap>
+
+    <!--
+       ###################################################
+       ######### mysql
+       ###################################################
+     -->
+    <insert id="insert" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.InventoryEntity"  >
+        INSERT INTO `inventory` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`product_id`
+            ,`supplier_id`
+            ,`shelf_id`
+            ,`productnumber`
+            ,`inwarehouse_id`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{productId,jdbcType=BIGINT}
+            ,#{supplierId,jdbcType=BIGINT}
+            ,#{shelfId,jdbcType=BIGINT}
+            ,#{productnumber,jdbcType=BIGINT}
+            ,#{inwarehouseId,jdbcType=BIGINT}
+        )
+    </insert>
+
+    <insert id="batchInsert"  parameterType="java.util.List" >
+        INSERT INTO `inventory` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`product_id`
+            ,`supplier_id`
+            ,`shelf_id`
+            ,`productnumber`
+            ,`inwarehouse_id`
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.id,jdbcType=BIGINT}
+            ,#{item.createdTime,jdbcType=TIMESTAMP}
+            ,#{item.updatedTime,jdbcType=TIMESTAMP}
+            ,#{item.createdBy,jdbcType=VARCHAR}
+            ,#{item.updatedBy,jdbcType=VARCHAR}
+            ,#{item.productId,jdbcType=BIGINT}
+            ,#{item.supplierId,jdbcType=BIGINT}
+            ,#{item.shelfId,jdbcType=BIGINT}
+            ,#{item.productnumber,jdbcType=BIGINT}
+            ,#{item.inwarehouseId,jdbcType=BIGINT}
+         )
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.InventoryEntity" >
+        UPDATE `inventory`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('productId')">`product_id` = #{bean.productId,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('supplierId')">`supplier_id` = #{bean.supplierId,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('shelfId')">`shelf_id` = #{bean.shelfId,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('productnumber')">`productnumber` = #{bean.productnumber,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('inwarehouseId')">`inwarehouse_id` = #{bean.inwarehouseId,jdbcType=BIGINT},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+    <!-- todo -->
+    <update id="batchUpdate" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.InventoryEntity" >
+        UPDATE `inventory`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('productId')">`product_id` = #{bean.productId,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('supplierId')">`supplier_id` = #{bean.supplierId,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('shelfId')">`shelf_id` = #{bean.shelfId,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('productnumber')">`productnumber` = #{bean.productnumber,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('inwarehouseId')">`inwarehouse_id` = #{bean.inwarehouseId,jdbcType=BIGINT},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM `inventory` where `id` = #{id}
+    </delete>
+
+
+    <delete id="batchDelete" >
+        DELETE FROM `inventory` where `id` in
+        <foreach collection="list" item="pkValueItem" index="index"  separator="," open="(" close=")">
+            #{pkValueItem}
+        </foreach>
+    </delete>
+
+    <delete id="deleteReference">
+        DELETE FROM `inventory`
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'productId'">
+                    AND `product_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'supplierId'">
+                    AND `supplier_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'shelfId'">
+                    AND `shelf_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'productnumber'">
+                    AND `productnumber` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'inwarehouseId'">
+                    AND `inwarehouse_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+    </delete>
+
+    <select id="existReference" resultType="java.lang.Long" >
+        select `id` from `inventory` 
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'productId'">
+                    AND `product_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'supplierId'">
+                    AND `supplier_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'shelfId'">
+                    AND `shelf_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'productnumber'">
+                    AND `productnumber` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'inwarehouseId'">
+                    AND `inwarehouse_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+         LIMIT 1
+    </select>
+
+
+    <select id="selectOne" resultMap="BaseResultMap" >
+        select * from `inventory` where `id`=#{id}
+    </select>
+
+    <select id="selectList" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter" resultMap="BaseResultMap" >
+        select * from `inventory`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <select id="count" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter" resultType="java.lang.Integer" >
+        select count(1) from `inventory`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <insert id="createOrUpdate" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.InventoryEntity">
+        INSERT INTO `inventory` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`product_id`
+            ,`supplier_id`
+            ,`shelf_id`
+            ,`productnumber`
+            ,`inwarehouse_id`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{productId,jdbcType=BIGINT}
+            ,#{supplierId,jdbcType=BIGINT}
+            ,#{shelfId,jdbcType=BIGINT}
+            ,#{productnumber,jdbcType=BIGINT}
+            ,#{inwarehouseId,jdbcType=BIGINT}
+        )
+    </insert>
+
+
+    <update id="updateBy">
+        UPDATE `inventory`
+        <set>
+        <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('productId')">`product_id` = #{bean.productId,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('supplierId')">`supplier_id` = #{bean.supplierId,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('shelfId')">`shelf_id` = #{bean.shelfId,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('productnumber')">`productnumber` = #{bean.productnumber,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('inwarehouseId')">`inwarehouse_id` = #{bean.inwarehouseId,jdbcType=BIGINT},</if>
+        </set>
+        where ${filter.sql("mysql")}
+    </update>
+
+    <delete id="deleteBy" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter">
+        DELETE FROM `inventory` where ${filter.sql("mysql")}
+    </delete>
+</mapper>

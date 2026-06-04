@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.netease.cloud</groupId>
+  <artifactId>nasljava-definition</artifactId>
+  <version>1.1</version>
+  <name>nasljava-definition</name>
+  <description></description>
+  <url>https://nasl.codewave.163.com</url>
+  <distributionManagement>
+    <repository>
+      <id>central</id>
+      <name>repo</name>
+      <url>http://mvn.hz.netease.com/artifactory/libs-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>snapshots-only</name>
+      <url>http://mvn.hz.netease.com/artifactory/libs-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <properties>
+    <revision>1.0</revision>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <pluginRepositories>
+    <pluginRepository>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </pluginRepository>
+  </pluginRepositories>
+</project>

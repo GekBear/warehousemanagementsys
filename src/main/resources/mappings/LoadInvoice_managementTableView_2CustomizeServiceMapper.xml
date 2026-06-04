@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadInvoice_managementTableView_2CustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LoadInvoice_managementTableView_2CustomizeServiceMapper">
+
+    <resultMap id="AnonymousStructure_91499DCB05E3CB30C2E9EDADADB28861" type="com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_12019DF2BBE99F3D26BA90AEB5B3AB60">
+	<id column="T1_C1" property="documents.id"/>
+	<result column="T1_C2" property="documents.createdTime"/>
+	<result column="T1_C3" property="documents.updatedTime"/>
+	<result column="T1_C4" property="documents.createdBy"/>
+	<result column="T1_C5" property="documents.updatedBy"/>
+	<result column="T1_C6" property="documents.sala"/>
+	<result column="T1_C7" property="documents.orderID"/>
+	<result column="T1_C8" property="documents.tax_rate"/>
+	<result column="T1_C9" property="documents.price_amout"/>
+	<result column="T1_C10" property="documents.pay"/>
+	<result column="T1_C11" property="documents.xiaoji"/>
+	<result column="T1_C12" property="documents.buyer"/>
+	<result column="T1_C13" property="documents.suifri"/>
+</resultMap>
+<select id="getAnonymousStructure_91499DCB05E3CB30C2E9EDADADB28861" resultMap="AnonymousStructure_91499DCB05E3CB30C2E9EDADADB28861">
+	 SELECT `documents`.`id` `T1_C1`,`documents`.`created_time` `T1_C2`,`documents`.`updated_time` `T1_C3`,`documents`.`created_by` `T1_C4`,`documents`.`updated_by` `T1_C5`,`documents`.`sala` `T1_C6`,`documents`.`order_i_d` `T1_C7`,`documents`.`tax_rate` `T1_C8`,`documents`.`price_amout` `T1_C9`,`documents`.`pay` `T1_C10`,`documents`.`xiaoji` `T1_C11`,`documents`.`buyer` `T1_C12`,`documents`.`suifri` `T1_C13` FROM `documents` 
+<if test=" ( filter!=null and filter.tax_rate!=null ) or ( filter!=null and filter.buyer!=null ) or 1==1 or ( filter!=null and filter.orderID!=null ) or ( filter!=null and filter.xiaoji!=null ) or ( filter!=null and filter.sala!=null ) or ( filter!=null and filter.suifri!=null ) or ( filter!=null and filter.price_amout!=null ) or ( filter!=null and filter.pay!=null ) ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	
+<if test=" ( filter!=null and filter.tax_rate!=null ) or 1==1 or ( filter!=null and filter.orderID!=null ) or ( filter!=null and filter.sala!=null ) or ( filter!=null and filter.price_amout!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" 1==1 or ( filter!=null and filter.orderID!=null ) or ( filter!=null and filter.sala!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" 1==1 and ( filter!=null and filter.sala!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`sala` = #{filter.sala}
+</trim>
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.orderID!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`order_i_d` = #{filter.orderID}
+</trim>
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" ( filter!=null and filter.tax_rate!=null ) or 1==1 or ( filter!=null and filter.price_amout!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" ( filter!=null and filter.tax_rate!=null ) and 1==1 ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`tax_rate` = #{filter.tax_rate}
+</trim>
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.price_amout!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`price_amout` = #{filter.price_amout}
+</trim>
+</trim>
+</if>
+</trim>
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" ( filter!=null and filter.buyer!=null ) or 1==1 or ( filter!=null and filter.xiaoji!=null ) or ( filter!=null and filter.suifri!=null ) or ( filter!=null and filter.pay!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" 1==1 or ( filter!=null and filter.xiaoji!=null ) or ( filter!=null and filter.pay!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" 1==1 and ( filter!=null and filter.pay!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`pay` LIKE concat('%', concat(#{filter.pay}, '%'))
+</trim>
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.xiaoji!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`xiaoji` = #{filter.xiaoji}
+</trim>
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" ( filter!=null and filter.buyer!=null ) or 1==1 or ( filter!=null and filter.suifri!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" ( filter!=null and filter.buyer!=null ) and 1==1 ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`buyer` LIKE concat('%', concat(#{filter.buyer}, '%'))
+</trim>
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.suifri!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`suifri` = #{filter.suifri}
+</trim>
+</trim>
+</if>
+</trim>
+</trim>
+</if>
+</trim>
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" sort!=null ">
+	
+<trim prefix = "ORDER BY" suffixOverrides=",">
+	
+<if test=" sort!=null ">
+	
+<trim suffix=",">
+	${sort} 
+<if test=" order!=null ">
+	${@com.zngcxhy.warehousemanagementsys.util.SqlInjectCheckUtil@checkAscOrDesc(order)}
+</if>
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" 1==1 and page!=null and size!=null ">
+	 LIMIT ${( size * ( page - 1 ) )}, ${size}
+</if>
+</select>
+<select id="countAnonymousStructure_91499DCB05E3CB30C2E9EDADADB28861" resultType="java.lang.Long">
+	SELECT COUNT(*) FROM `documents` 
+<if test=" ( filter!=null and filter.tax_rate!=null ) or ( filter!=null and filter.buyer!=null ) or 1==1 or ( filter!=null and filter.orderID!=null ) or ( filter!=null and filter.xiaoji!=null ) or ( filter!=null and filter.sala!=null ) or ( filter!=null and filter.suifri!=null ) or ( filter!=null and filter.price_amout!=null ) or ( filter!=null and filter.pay!=null ) ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	
+<if test=" ( filter!=null and filter.tax_rate!=null ) or 1==1 or ( filter!=null and filter.orderID!=null ) or ( filter!=null and filter.sala!=null ) or ( filter!=null and filter.price_amout!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" 1==1 or ( filter!=null and filter.orderID!=null ) or ( filter!=null and filter.sala!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" 1==1 and ( filter!=null and filter.sala!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`sala` = #{filter.sala}
+</trim>
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.orderID!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`order_i_d` = #{filter.orderID}
+</trim>
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" ( filter!=null and filter.tax_rate!=null ) or 1==1 or ( filter!=null and filter.price_amout!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" ( filter!=null and filter.tax_rate!=null ) and 1==1 ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`tax_rate` = #{filter.tax_rate}
+</trim>
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.price_amout!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`price_amout` = #{filter.price_amout}
+</trim>
+</trim>
+</if>
+</trim>
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" ( filter!=null and filter.buyer!=null ) or 1==1 or ( filter!=null and filter.xiaoji!=null ) or ( filter!=null and filter.suifri!=null ) or ( filter!=null and filter.pay!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" 1==1 or ( filter!=null and filter.xiaoji!=null ) or ( filter!=null and filter.pay!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" 1==1 and ( filter!=null and filter.pay!=null ) ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`pay` LIKE concat('%', concat(#{filter.pay}, '%'))
+</trim>
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.xiaoji!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`xiaoji` = #{filter.xiaoji}
+</trim>
+</trim>
+</if>
+</trim>
+</if> 
+<if test=" ( filter!=null and filter.buyer!=null ) or 1==1 or ( filter!=null and filter.suifri!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	
+<if test=" ( filter!=null and filter.buyer!=null ) and 1==1 ">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`buyer` LIKE concat('%', concat(#{filter.buyer}, '%'))
+</trim>
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.suifri!=null ) ">
+	
+<trim prefix="and">
+	
+<trim prefix="(" suffix=")" prefixOverrides="and |or">
+	`documents`.`suifri` = #{filter.suifri}
+</trim>
+</trim>
+</if>
+</trim>
+</trim>
+</if>
+</trim>
+</trim>
+</if>
+</trim>
+</if>
+</select>
+
+
+</mapper>

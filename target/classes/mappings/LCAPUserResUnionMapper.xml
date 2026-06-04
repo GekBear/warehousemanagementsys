@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LCAPUserResUnionMapper">
+    <resultMap id="BaseRoleResultMap" type="com.zngcxhy.warehousemanagementsys.domain.entities.LCAPRole">
+            <id column="id" jdbcType="BIGINT" property="id" />
+                <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+                <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+                <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+                <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+                <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+                <result column="name" jdbcType="VARCHAR" property="name" />
+                <result column="description" jdbcType="VARCHAR" property="description" />
+                <result column="role_status" jdbcType="TINYINT" property="roleStatus" />
+                <result column="editable" jdbcType="TINYINT" property="editable" />
+    </resultMap>
+
+    <select id="getUserResourceList" resultType="java.lang.String">
+        SELECT  `lcap_resource_6568a7`.`name`
+        FROM `lcap_user_role_mapping_6568a7`
+        INNER JOIN `lcap_role_per_mapping_6568a7`
+        ON `lcap_user_role_mapping_6568a7`.`role_id` =
+        `lcap_role_per_mapping_6568a7`.`role_id`
+        INNER JOIN `lcap_per_res_mapping_6568a7`
+        ON `lcap_role_per_mapping_6568a7`.`permission_id` =
+        `lcap_per_res_mapping_6568a7`.`permission_id`
+        INNER JOIN `lcap_resource_6568a7`
+        ON `lcap_per_res_mapping_6568a7`.`resource_id` =
+        `lcap_resource_6568a7`.`id`
+        WHERE `lcap_user_role_mapping_6568a7`.`user_id` =  #{userId}
+    </select>
+
+    <select id="pageQueryRole" resultMap="BaseRoleResultMap">
+        select * from `lcap_role_6568a7`
+        <where>
+            <if test="name != null and name != ''">
+                `lcap_role_6568a7`.`name` LIKE concat('%', concat(#{name}, '%'))
+            </if>
+        </where>
+        order by `lcap_role_6568a7`.`created_time` desc
+        <if test=" size!=null ">
+            LIMIT
+            #{page},#{size}
+        </if>
+    </select>
+</mapper>

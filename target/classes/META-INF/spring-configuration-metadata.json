@@ -1,0 +1,292 @@
+{
+  "groups": [
+    {
+      "name": "custom",
+      "type": "com.zngcxhy.warehousemanagementsys.config.ExtensionProperties",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.ExtensionProperties"
+    },
+    {
+      "name": "gw.app",
+      "type": "com.zngcxhy.warehousemanagementsys.config.AppAddrProperties",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.AppAddrProperties"
+    },
+    {
+      "name": "lcp",
+      "type": "com.zngcxhy.warehousemanagementsys.config.LcpProperties",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.audit",
+      "type": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Audit",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties",
+      "sourceMethod": "getAudit()"
+    },
+    {
+      "name": "lcp.auth-center",
+      "type": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$AuthCenter",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties",
+      "sourceMethod": "getAuthCenter()"
+    },
+    {
+      "name": "lcp.report",
+      "type": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Report",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties",
+      "sourceMethod": "getReport()"
+    },
+    {
+      "name": "lcp.upload",
+      "type": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties",
+      "sourceMethod": "getUpload()"
+    },
+    {
+      "name": "lcp.wechat",
+      "type": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Wechat",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties",
+      "sourceMethod": "getWechat()"
+    },
+    {
+      "name": "product.remoteusercenter",
+      "type": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties"
+    },
+    {
+      "name": "product.remoteusercenter.h5",
+      "type": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties$LoginDetail",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties",
+      "sourceMethod": "getH5()"
+    },
+    {
+      "name": "product.remoteusercenter.pc",
+      "type": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties$LoginDetail",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties",
+      "sourceMethod": "getPc()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "gw.app.addr",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.AppAddrProperties"
+    },
+    {
+      "name": "lcp.app-name",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.audit.address",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Audit"
+    },
+    {
+      "name": "lcp.audit.enable",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Audit"
+    },
+    {
+      "name": "lcp.auth-center.address",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$AuthCenter"
+    },
+    {
+      "name": "lcp.auth-center.enable",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$AuthCenter"
+    },
+    {
+      "name": "lcp.auth-center.host",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$AuthCenter"
+    },
+    {
+      "name": "lcp.flow-url",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.frontends",
+      "type": "java.util.Map<java.lang.String,com.zngcxhy.warehousemanagementsys.config.LcpProperties$FrontendDTO>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.gateway-url",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.log-request",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "lcp.log-response",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "lcp.no-auth-paths",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.nuims",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.quartz-tables",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.report.component-id-map",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Report"
+    },
+    {
+      "name": "lcp.report.domain-id",
+      "type": "java.lang.Long",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Report"
+    },
+    {
+      "name": "lcp.report.host",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Report"
+    },
+    {
+      "name": "lcp.report.project-id",
+      "type": "java.lang.Long",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Report"
+    },
+    {
+      "name": "lcp.report.report-id-map",
+      "type": "java.util.Map<java.lang.String,java.lang.Long>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Report"
+    },
+    {
+      "name": "lcp.report.token-key",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Report"
+    },
+    {
+      "name": "lcp.return-exception-stack",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "lcp.snowflake-node-id",
+      "type": "java.lang.Long",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.ui-resource-address",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties"
+    },
+    {
+      "name": "lcp.upload.access",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload",
+      "defaultValue": "public"
+    },
+    {
+      "name": "lcp.upload.cdn-address",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload"
+    },
+    {
+      "name": "lcp.upload.s3-access-key",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload"
+    },
+    {
+      "name": "lcp.upload.s3-address",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload"
+    },
+    {
+      "name": "lcp.upload.s3-bucket",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload"
+    },
+    {
+      "name": "lcp.upload.s3-secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload"
+    },
+    {
+      "name": "lcp.upload.sink-path",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload"
+    },
+    {
+      "name": "lcp.upload.sink-type",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload"
+    },
+    {
+      "name": "lcp.upload.ttl",
+      "type": "java.lang.Double",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Upload"
+    },
+    {
+      "name": "lcp.wechat.app-id",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Wechat"
+    },
+    {
+      "name": "lcp.wechat.page-title",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Wechat"
+    },
+    {
+      "name": "lcp.wechat.secret",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.LcpProperties$Wechat"
+    },
+    {
+      "name": "product.remoteusercenter.address",
+      "type": "java.lang.String",
+      "description": "制品应用类型以及对应的用户中心服务地址",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties"
+    },
+    {
+      "name": "product.remoteusercenter.change",
+      "type": "java.lang.Boolean",
+      "description": "是否切换制品应用的用户中心 true为切换",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "product.remoteusercenter.h5.params",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties$LoginDetail"
+    },
+    {
+      "name": "product.remoteusercenter.h5.url",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties$LoginDetail"
+    },
+    {
+      "name": "product.remoteusercenter.pc.params",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties$LoginDetail"
+    },
+    {
+      "name": "product.remoteusercenter.pc.url",
+      "type": "java.lang.String",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties$LoginDetail"
+    },
+    {
+      "name": "product.remoteusercenter.tenant",
+      "type": "java.lang.String",
+      "description": "对接远程用户中心时 给用户分配的默认租户 联调环境配置为 lcp 测试环境配置为 defaultTenant 线上环境 关闭change开关 部署到客户后 该值填客户环境的默认租户",
+      "sourceType": "com.zngcxhy.warehousemanagementsys.config.RemoteUserCenterProperties"
+    }
+  ],
+  "hints": []
+}

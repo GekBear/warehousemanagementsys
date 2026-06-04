@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadinvaCustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LoadinvaCustomizeServiceMapper">
+
+    <resultMap id="AnonymousStructure_FA04CAEB20E1A6EBA60E0BECDFDA7215" type="com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_6137BC56C51B4B79E581ABCB94F7B2CE">
+	<result column="productName" property="productName"/>
+	<result column="productnum" property="productnum"/>
+</resultMap>
+<select id="getAnonymousStructure_FA04CAEB20E1A6EBA60E0BECDFDA7215" resultMap="AnonymousStructure_FA04CAEB20E1A6EBA60E0BECDFDA7215">
+	 SELECT SUM(`inventory`.`productnumber`) `productnum`,`product`.`product_name` `productName` FROM `inventory` LEFT JOIN `product` ON `inventory`.`product_id` = `product`.`id` GROUP BY `product`.`product_name` 
+<if test=" 1==1 ">
+	 LIMIT ${( 1000 * ( 1 - 1 ) )}, ${1000}
+</if>
+</select>
+<select id="countAnonymousStructure_FA04CAEB20E1A6EBA60E0BECDFDA7215" resultType="java.lang.Long">
+	SELECT COUNT(*) FROM (SELECT SUM(`inventory`.`productnumber`) `productnum`,`product`.`product_name` `productName` FROM `inventory` LEFT JOIN `product` ON `inventory`.`product_id` = `product`.`id` GROUP BY `product`.`product_name`) AnonymousS
+</select>
+
+
+</mapper>

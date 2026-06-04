@@ -1,0 +1,72 @@
+{
+  "ideVersion": "3.3",
+  "name": "BigModel",
+  "title": "BigModel",
+  "description": "",
+  "specVersion": "1.0.0",
+  "type": "module",
+  "subType": "extension",
+  "version": "1.0.0",
+  "externalDependencyMap": {"maven": [{
+    "groupId": "com.netease.lowcode",
+    "artifactId": "BigModel",
+    "version": "1.0.0"
+  }]},
+  "compilerInfoMap": {"java": [{
+    "modifiers": [
+      "public",
+      "static"
+    ],
+    "type": "logic",
+    "className": "BigModelNew",
+    "packageName": "com.netease.lowcode",
+    "javaTypes": {
+      "": "String",
+      "input": "String"
+    },
+    "naslName": "LargeModelAssistant"
+  }]},
+  "logics": [{
+    "name": "LargeModelAssistant",
+    "description": "",
+    "params": [{
+      "name": "input",
+      "description": "",
+      "typeAnnotation": {
+        "typeName": "String",
+        "typeNamespace": "nasl.core",
+        "typeKind": "primitive",
+        "concept": "TypeAnnotation"
+      },
+      "concept": "Param",
+      "required": false
+    }],
+    "returns": [{
+      "name": "result",
+      "description": "",
+      "typeAnnotation": {
+        "typeName": "Union",
+        "typeArguments": [
+          {
+            "typeName": "String",
+            "typeNamespace": "nasl.core",
+            "typeKind": "primitive",
+            "concept": "TypeAnnotation"
+          },
+          {
+            "typeName": "Error",
+            "typeNamespace": "nasl.ui",
+            "typeKind": "reference",
+            "concept": "TypeAnnotation"
+          }
+        ],
+        "typeNamespace": "nasl.core",
+        "typeKind": "union",
+        "concept": "TypeAnnotation"
+      },
+      "concept": "Return"
+    }],
+    "concept": "Logic",
+    "overridable": false
+  }]
+}

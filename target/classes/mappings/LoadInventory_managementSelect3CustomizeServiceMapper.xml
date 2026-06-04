@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadInventory_managementSelect3CustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LoadInventory_managementSelect3CustomizeServiceMapper">
+
+    <resultMap id="AnonymousStructure_D973E5D521E557621AB6C7C329CD488F" type="com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_9ECE35F6B2A89475F87BB2D49DE0DDB8">
+	<id column="T1_C1" property="product.id"/>
+	<result column="T1_C2" property="product.createdTime"/>
+	<result column="T1_C3" property="product.updatedTime"/>
+	<result column="T1_C4" property="product.createdBy"/>
+	<result column="T1_C5" property="product.updatedBy"/>
+	<result column="T1_C6" property="product.productName"/>
+	<result column="T1_C7" property="product.description"/>
+	<result column="T1_C8" property="product.supillerId"/>
+	<result column="T1_C9" property="product.stockQuantity"/>
+	<result column="T1_C10" property="product.supplierName"/>
+	<result column="T1_C11" property="product.product_potot"/>
+	<result column="T1_C12" property="product.unit1"/>
+</resultMap>
+<select id="getAnonymousStructure_D973E5D521E557621AB6C7C329CD488F" resultMap="AnonymousStructure_D973E5D521E557621AB6C7C329CD488F">
+	 SELECT `product`.`id` `T1_C1`,`product`.`created_time` `T1_C2`,`product`.`updated_time` `T1_C3`,`product`.`created_by` `T1_C4`,`product`.`updated_by` `T1_C5`,`product`.`product_name` `T1_C6`,`product`.`description` `T1_C7`,`product`.`supiller_id` `T1_C8`,`product`.`stock_quantity` `T1_C9`,`product`.`supplier_name` `T1_C10`,`product`.`product_potot` `T1_C11`,`product`.`unit1` `T1_C12` FROM `product`  
+<if test=" 1==1 and page!=null and size!=null ">
+	 LIMIT ${( size * ( page - 1 ) )}, ${size}
+</if>
+</select>
+<select id="countAnonymousStructure_D973E5D521E557621AB6C7C329CD488F" resultType="java.lang.Long">
+	SELECT COUNT(*) FROM `product` 
+</select>
+
+
+</mapper>

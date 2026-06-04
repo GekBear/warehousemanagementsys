@@ -1,0 +1,35 @@
+package com.zngcxhy.warehousemanagementsys.repository.entities;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.math.BigDecimal;
+import java.math.BigDecimal;
+import com.zngcxhy.warehousemanagementsys.domain.entities.WarehouseEntity;
+import com.zngcxhy.warehousemanagementsys.repository.ReferenceHandleMapper;
+import com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter;
+import org.apache.ibatis.annotations.Param;
+/**
+* auto generate WarehouseEntity Mapper
+*
+* @author sys
+*/
+public interface WarehouseEntityMapper extends ReferenceHandleMapper {
+
+    int insert(WarehouseEntity bean);
+    int batchInsert(List<WarehouseEntity> beans);
+    List<WarehouseEntity> selectList(@Param("filter") AbstractQueryFilter filter);
+    int count(@Param("filter") AbstractQueryFilter filter);
+
+    int update(WarehouseEntity bean, List<String> updateFields);
+    int batchUpdate(List<WarehouseEntity> beans, List<String> updateFields);
+    int delete(Long id);
+    int batchDelete(List<Long> ids);
+    WarehouseEntity selectOne(Long id);
+
+    int createOrUpdate(WarehouseEntity bean);
+    int updateBy(WarehouseEntity bean, List<String> updateFields, AbstractQueryFilter filter);
+    int deleteBy(@Param("filter") AbstractQueryFilter filter);
+
+}

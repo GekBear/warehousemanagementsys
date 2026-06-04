@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated Logic1orderCustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.Logic1orderCustomizeServiceMapper">
+
+    <resultMap id="AnonymousStructure_00C696A2C37E41565D1436EC4B43FEA3" type="com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_28406730B11920D8D74F4BCB897DBD72">
+	<id column="T1_C1" property="purchaseOrderDetai.id"/>
+	<result column="T1_C2" property="purchaseOrderDetai.createdTime"/>
+	<result column="T1_C3" property="purchaseOrderDetai.updatedTime"/>
+	<result column="T1_C4" property="purchaseOrderDetai.createdBy"/>
+	<result column="T1_C5" property="purchaseOrderDetai.updatedBy"/>
+	<result column="T1_C6" property="purchaseOrderDetai.orderID"/>
+	<result column="T1_C7" property="purchaseOrderDetai.quantity"/>
+	<result column="T1_C8" property="purchaseOrderDetai.unitPrice"/>
+	<result column="T1_C9" property="purchaseOrderDetai.totalAmount"/>
+	<result column="T1_C10" property="purchaseOrderDetai.productID"/>
+	<result column="T1_C11" property="purchaseOrderDetai.productname"/>
+</resultMap>
+<select id="getAnonymousStructure_00C696A2C37E41565D1436EC4B43FEA3" resultMap="AnonymousStructure_00C696A2C37E41565D1436EC4B43FEA3">
+	 SELECT `purchase_order_detai`.`id` `T1_C1`,`purchase_order_detai`.`created_time` `T1_C2`,`purchase_order_detai`.`updated_time` `T1_C3`,`purchase_order_detai`.`created_by` `T1_C4`,`purchase_order_detai`.`updated_by` `T1_C5`,`purchase_order_detai`.`order_i_d` `T1_C6`,`purchase_order_detai`.`quantity` `T1_C7`,`purchase_order_detai`.`unit_price` `T1_C8`,`purchase_order_detai`.`total_amount` `T1_C9`,`purchase_order_detai`.`product_i_d` `T1_C10`,`purchase_order_detai`.`productname` `T1_C11` FROM `purchase_order_detai` 
+<if test=" 1==1 and id!=null ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`purchase_order_detai`.`order_i_d` = #{id}
+</trim>
+</if> 
+<if test=" 1==1 ">
+	 LIMIT ${( 1000 * ( 1 - 1 ) )}, ${1000}
+</if>
+</select>
+<select id="countAnonymousStructure_00C696A2C37E41565D1436EC4B43FEA3" resultType="java.lang.Long">
+	SELECT COUNT(*) FROM `purchase_order_detai` 
+<if test=" 1==1 and id!=null ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`purchase_order_detai`.`order_i_d` = #{id}
+</trim>
+</if>
+</select>
+
+
+</mapper>

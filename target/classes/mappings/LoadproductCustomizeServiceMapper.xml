@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadproductCustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LoadproductCustomizeServiceMapper">
+
+    <resultMap id="AnonymousStructure_E03BAD4CA7266D3FC9D0ED04DB665CDA" type="com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_F4BA8A02D8F1073181C7494B2450B5D1">
+	<result column="productName" property="productName"/>
+	<result column="productquantity" property="productquantity"/>
+</resultMap>
+<select id="getAnonymousStructure_E03BAD4CA7266D3FC9D0ED04DB665CDA" resultMap="AnonymousStructure_E03BAD4CA7266D3FC9D0ED04DB665CDA">
+	 SELECT SUM(`product`.`stock_quantity`) `productquantity`,`product`.`product_name` `productName` FROM `product` 
+<if test=" supplierId!=null and 1==1 ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`product`.`supiller_id` = #{supplierId}
+</trim>
+</if> GROUP BY `product`.`product_name` 
+<if test=" 1==1 ">
+	 LIMIT ${( 1000 * ( 1 - 1 ) )}, ${1000}
+</if>
+</select>
+<select id="countAnonymousStructure_E03BAD4CA7266D3FC9D0ED04DB665CDA" resultType="java.lang.Long">
+	SELECT COUNT(*) FROM (SELECT SUM(`product`.`stock_quantity`) `productquantity`,`product`.`product_name` `productName` FROM `product` 
+<if test=" supplierId!=null and 1==1 ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`product`.`supiller_id` = #{supplierId}
+</trim>
+</if> GROUP BY `product`.`product_name`) AnonymousS
+</select>
+
+
+</mapper>

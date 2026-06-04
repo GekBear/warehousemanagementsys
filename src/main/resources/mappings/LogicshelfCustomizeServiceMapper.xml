@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LogicshelfCustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LogicshelfCustomizeServiceMapper">
+
+    <resultMap id="AnonymousStructure_7F0FC9CD7C0E19CDEBEF556E681E6B3C" type="com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_F30C4D4796DE57EC4963423784B62512">
+	<id column="T1_C1" property="shelf.id"/>
+	<result column="T1_C2" property="shelf.createdTime"/>
+	<result column="T1_C3" property="shelf.updatedTime"/>
+	<result column="T1_C4" property="shelf.createdBy"/>
+	<result column="T1_C5" property="shelf.updatedBy"/>
+	<result column="T1_C6" property="shelf.shelfName"/>
+	<result column="T1_C7" property="shelf.wareId"/>
+</resultMap>
+<select id="getAnonymousStructure_7F0FC9CD7C0E19CDEBEF556E681E6B3C" resultMap="AnonymousStructure_7F0FC9CD7C0E19CDEBEF556E681E6B3C">
+	 SELECT `shelf`.`id` `T1_C1`,`shelf`.`created_time` `T1_C2`,`shelf`.`updated_time` `T1_C3`,`shelf`.`created_by` `T1_C4`,`shelf`.`updated_by` `T1_C5`,`shelf`.`shelf_name` `T1_C6`,`shelf`.`ware_id` `T1_C7` FROM `shelf`  
+<if test=" 1==1 ">
+	 LIMIT ${( 1000 * ( 1 - 1 ) )}, ${1000}
+</if>
+</select>
+<select id="countAnonymousStructure_7F0FC9CD7C0E19CDEBEF556E681E6B3C" resultType="java.lang.Long">
+	SELECT COUNT(*) FROM `shelf` 
+</select>
+
+
+</mapper>

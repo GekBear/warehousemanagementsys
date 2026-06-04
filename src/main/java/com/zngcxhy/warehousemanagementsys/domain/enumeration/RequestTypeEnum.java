@@ -1,0 +1,41 @@
+package com.zngcxhy.warehousemanagementsys.domain.enumeration;
+
+import com.zngcxhy.warehousemanagementsys.domain.enumeration.BaseEnum;
+import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+/**
+* auto generate RequestTypeEnum enum
+*
+* @author sys
+*/
+public enum RequestTypeEnum implements BaseEnum<RequestTypeEnum, String> {
+    FIELD_0("0", "维修"),
+    FIELD_1("1", "退货"),
+    FIELD_2("2", "换货"),
+    FIELD_3("3", "投诉"),
+    ;
+    public final String code;
+    public final String desc;
+
+    RequestTypeEnum(String code, String desc) {
+        this.code = code;
+        this.desc = desc;
+    }
+
+    @JsonValue
+    public String getJsonValue(){
+        return this.code;
+    }
+
+    @Override
+    public String getCode() {
+        return code;
+    }
+
+    @Override
+    public String getDesc() {
+        return desc;
+    }
+
+}

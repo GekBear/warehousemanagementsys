@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated DocumentsEntity Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.entities.DocumentsEntityMapper">
+    <resultMap id="BaseResultMap" type="com.zngcxhy.warehousemanagementsys.domain.entities.DocumentsEntity">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+        <result column="sala" jdbcType="BIGINT" property="sala" />
+        <result column="order_i_d" jdbcType="BIGINT" property="orderID" />
+        <result column="tax_rate" jdbcType="BIGINT" property="tax_rate" />
+        <result column="price_amout" jdbcType="DECIMAL" property="price_amout" />
+        <result column="pay" jdbcType="VARCHAR" property="pay" />
+        <result column="xiaoji" jdbcType="DECIMAL" property="xiaoji" />
+        <result column="buyer" jdbcType="VARCHAR" property="buyer" />
+        <result column="suifri" jdbcType="DECIMAL" property="suifri" />
+    </resultMap>
+
+    <!--
+       ###################################################
+       ######### mysql
+       ###################################################
+     -->
+    <insert id="insert" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.DocumentsEntity"  >
+        INSERT INTO `documents` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`sala`
+            ,`order_i_d`
+            ,`tax_rate`
+            ,`price_amout`
+            ,`pay`
+            ,`xiaoji`
+            ,`buyer`
+            ,`suifri`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{sala,jdbcType=BIGINT}
+            ,#{orderID,jdbcType=BIGINT}
+            ,#{tax_rate,jdbcType=BIGINT}
+            ,#{price_amout,jdbcType=DECIMAL}
+            ,#{pay,jdbcType=VARCHAR}
+            ,#{xiaoji,jdbcType=DECIMAL}
+            ,#{buyer,jdbcType=VARCHAR}
+            ,#{suifri,jdbcType=DECIMAL}
+        )
+    </insert>
+
+    <insert id="batchInsert"  parameterType="java.util.List" >
+        INSERT INTO `documents` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`sala`
+            ,`order_i_d`
+            ,`tax_rate`
+            ,`price_amout`
+            ,`pay`
+            ,`xiaoji`
+            ,`buyer`
+            ,`suifri`
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.id,jdbcType=BIGINT}
+            ,#{item.createdTime,jdbcType=TIMESTAMP}
+            ,#{item.updatedTime,jdbcType=TIMESTAMP}
+            ,#{item.createdBy,jdbcType=VARCHAR}
+            ,#{item.updatedBy,jdbcType=VARCHAR}
+            ,#{item.sala,jdbcType=BIGINT}
+            ,#{item.orderID,jdbcType=BIGINT}
+            ,#{item.tax_rate,jdbcType=BIGINT}
+            ,#{item.price_amout,jdbcType=DECIMAL}
+            ,#{item.pay,jdbcType=VARCHAR}
+            ,#{item.xiaoji,jdbcType=DECIMAL}
+            ,#{item.buyer,jdbcType=VARCHAR}
+            ,#{item.suifri,jdbcType=DECIMAL}
+         )
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.DocumentsEntity" >
+        UPDATE `documents`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('sala')">`sala` = #{bean.sala,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('orderID')">`order_i_d` = #{bean.orderID,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('tax_rate')">`tax_rate` = #{bean.tax_rate,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('price_amout')">`price_amout` = #{bean.price_amout,jdbcType=DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('pay')">`pay` = #{bean.pay,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('xiaoji')">`xiaoji` = #{bean.xiaoji,jdbcType=DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('buyer')">`buyer` = #{bean.buyer,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('suifri')">`suifri` = #{bean.suifri,jdbcType=DECIMAL},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+    <!-- todo -->
+    <update id="batchUpdate" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.DocumentsEntity" >
+        UPDATE `documents`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('sala')">`sala` = #{bean.sala,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('orderID')">`order_i_d` = #{bean.orderID,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('tax_rate')">`tax_rate` = #{bean.tax_rate,jdbcType=BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('price_amout')">`price_amout` = #{bean.price_amout,jdbcType=DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('pay')">`pay` = #{bean.pay,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('xiaoji')">`xiaoji` = #{bean.xiaoji,jdbcType=DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('buyer')">`buyer` = #{bean.buyer,jdbcType=VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('suifri')">`suifri` = #{bean.suifri,jdbcType=DECIMAL},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM `documents` where `id` = #{id}
+    </delete>
+
+
+    <delete id="batchDelete" >
+        DELETE FROM `documents` where `id` in
+        <foreach collection="list" item="pkValueItem" index="index"  separator="," open="(" close=")">
+            #{pkValueItem}
+        </foreach>
+    </delete>
+
+    <delete id="deleteReference">
+        DELETE FROM `documents`
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'sala'">
+                    AND `sala` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'orderID'">
+                    AND `order_i_d` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'tax_rate'">
+                    AND `tax_rate` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'price_amout'">
+                    AND `price_amout` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'pay'">
+                    AND `pay` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'xiaoji'">
+                    AND `xiaoji` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'buyer'">
+                    AND `buyer` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'suifri'">
+                    AND `suifri` = #{value, jdbcType=DECIMAL}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+    </delete>
+
+    <select id="existReference" resultType="java.lang.Long" >
+        select `id` from `documents` 
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'sala'">
+                    AND `sala` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'orderID'">
+                    AND `order_i_d` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'tax_rate'">
+                    AND `tax_rate` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'price_amout'">
+                    AND `price_amout` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'pay'">
+                    AND `pay` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'xiaoji'">
+                    AND `xiaoji` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'buyer'">
+                    AND `buyer` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'suifri'">
+                    AND `suifri` = #{value, jdbcType=DECIMAL}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+         LIMIT 1
+    </select>
+
+
+    <select id="selectOne" resultMap="BaseResultMap" >
+        select * from `documents` where `id`=#{id}
+    </select>
+
+    <select id="selectList" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter" resultMap="BaseResultMap" >
+        select * from `documents`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <select id="count" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter" resultType="java.lang.Integer" >
+        select count(1) from `documents`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <insert id="createOrUpdate" parameterType="com.zngcxhy.warehousemanagementsys.domain.entities.DocumentsEntity">
+        INSERT INTO `documents` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`sala`
+            ,`order_i_d`
+            ,`tax_rate`
+            ,`price_amout`
+            ,`pay`
+            ,`xiaoji`
+            ,`buyer`
+            ,`suifri`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{sala,jdbcType=BIGINT}
+            ,#{orderID,jdbcType=BIGINT}
+            ,#{tax_rate,jdbcType=BIGINT}
+            ,#{price_amout,jdbcType=DECIMAL}
+            ,#{pay,jdbcType=VARCHAR}
+            ,#{xiaoji,jdbcType=DECIMAL}
+            ,#{buyer,jdbcType=VARCHAR}
+            ,#{suifri,jdbcType=DECIMAL}
+        )
+    </insert>
+
+
+    <update id="updateBy">
+        UPDATE `documents`
+        <set>
+        <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime,jdbcType=TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime,jdbcType=TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('sala')">`sala` = #{bean.sala,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('orderID')">`order_i_d` = #{bean.orderID,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('tax_rate')">`tax_rate` = #{bean.tax_rate,jdbcType=BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('price_amout')">`price_amout` = #{bean.price_amout,jdbcType=DECIMAL},</if>
+        <if test="updateFields == null or updateFields.contains('pay')">`pay` = #{bean.pay,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('xiaoji')">`xiaoji` = #{bean.xiaoji,jdbcType=DECIMAL},</if>
+        <if test="updateFields == null or updateFields.contains('buyer')">`buyer` = #{bean.buyer,jdbcType=VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('suifri')">`suifri` = #{bean.suifri,jdbcType=DECIMAL},</if>
+        </set>
+        where ${filter.sql("mysql")}
+    </update>
+
+    <delete id="deleteBy" parameterType="com.zngcxhy.warehousemanagementsys.service.dto.filters.AbstractQueryFilter">
+        DELETE FROM `documents` where ${filter.sql("mysql")}
+    </delete>
+</mapper>

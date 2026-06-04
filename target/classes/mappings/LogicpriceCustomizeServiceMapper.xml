@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LogicpriceCustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LogicpriceCustomizeServiceMapper">
+
+    <resultMap id="AnonymousStructure_F330A109DE5007BF5EE8789CDFDC6DF8" type="com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_92FE1F615BD486F65BE5842740BEDF73">
+	<result column="productName" property="productName"/>
+	<result column="price" property="price"/>
+</resultMap>
+<select id="getAnonymousStructure_F330A109DE5007BF5EE8789CDFDC6DF8" resultMap="AnonymousStructure_F330A109DE5007BF5EE8789CDFDC6DF8">
+	 SELECT SUM(`purchase_order_detai`.`total_amount`) `price`,`product`.`product_name` `productName` FROM `purchase_order_detai` INNER JOIN `product` ON `purchase_order_detai`.`product_i_d` = `product`.`id` INNER JOIN `purchase_order` ON `purchase_order_detai`.`order_i_d` = `purchase_order`.`id` 
+<if test=" supplierID!=null and 1==1 ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`purchase_order`.`supplier_i_d` = #{supplierID}
+</trim>
+</if> GROUP BY `product`.`product_name` 
+<if test=" 1==1 ">
+	 LIMIT ${( 1000 * ( 1 - 1 ) )}, ${1000}
+</if>
+</select>
+<select id="countAnonymousStructure_F330A109DE5007BF5EE8789CDFDC6DF8" resultType="java.lang.Long">
+	SELECT COUNT(*) FROM (SELECT SUM(`purchase_order_detai`.`total_amount`) `price`,`product`.`product_name` `productName` FROM `purchase_order_detai` INNER JOIN `product` ON `purchase_order_detai`.`product_i_d` = `product`.`id` INNER JOIN `purchase_order` ON `purchase_order_detai`.`order_i_d` = `purchase_order`.`id` 
+<if test=" supplierID!=null and 1==1 ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`purchase_order`.`supplier_i_d` = #{supplierID}
+</trim>
+</if> GROUP BY `product`.`product_name`) AnonymousS
+</select>
+
+
+</mapper>

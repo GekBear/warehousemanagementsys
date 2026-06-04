@@ -1,0 +1,173 @@
+{
+  "ideVersion": "2.22",
+  "name": "lcap_auth",
+  "title": "lcap-auth",
+  "description": "",
+  "specVersion": "1.0.0",
+  "type": "module",
+  "subType": "extension",
+  "version": "1.0.0",
+  "externalDependencyMap": {"maven": [{
+    "groupId": "com.netease.lowcode",
+    "artifactId": "lcap-auth",
+    "version": "1.0.0"
+  }]},
+  "compilerInfoMap": {"java": [
+    {
+      "packageName": "com.netease.lowcode.auth.domain",
+      "javaTypes": {
+        "extensionInfos": "Map<String, String>",
+        "userName": "String",
+        "userId": "String"
+      },
+      "naslName": "LCAPUser",
+      "type": "structure",
+      "className": "LCAPUser"
+    },
+    {
+      "packageName": "com.netease.lowcode.auth",
+      "javaTypes": {"": "com.netease.lowcode.auth.domain.LCAPUser"},
+      "naslName": "getUser",
+      "type": "logic",
+      "className": "LCAPAuthService"
+    },
+    {
+      "packageName": "com.netease.lowcode.auth",
+      "javaTypes": {
+        "": "Boolean",
+        "lcapUser": "com.netease.lowcode.auth.domain.LCAPUser"
+      },
+      "naslName": "createToken",
+      "type": "logic",
+      "className": "LCAPAuthService"
+    },
+    {
+      "packageName": "com.netease.lowcode.auth",
+      "javaTypes": {"": "Boolean"},
+      "naslName": "removeToken",
+      "type": "logic",
+      "className": "LCAPAuthService"
+    }
+  ]},
+  "logics": [
+    {
+      "description": "获取当前登录用户",
+      "params": [],
+      "concept": "Logic",
+      "overridable": true,
+      "returns": [{
+        "description": "LCAPUser 用户信息",
+        "concept": "Return",
+        "typeAnnotation": {
+          "concept": "TypeAnnotation",
+          "typeKind": "reference",
+          "typeNamespace": "extensions.lcap_auth.structures",
+          "typeName": "LCAPUser"
+        },
+        "name": "result"
+      }],
+      "name": "getUser"
+    },
+    {
+      "description": "创建Token",
+      "params": [{
+        "description": "用户信息",
+        "concept": "Param",
+        "required": true,
+        "typeAnnotation": {
+          "concept": "TypeAnnotation",
+          "typeKind": "reference",
+          "typeNamespace": "extensions.lcap_auth.structures",
+          "typeName": "LCAPUser"
+        },
+        "name": "lcapUser"
+      }],
+      "concept": "Logic",
+      "overridable": true,
+      "returns": [{
+        "description": "",
+        "concept": "Return",
+        "typeAnnotation": {
+          "concept": "TypeAnnotation",
+          "typeKind": "primitive",
+          "typeNamespace": "nasl.core",
+          "typeName": "Boolean"
+        },
+        "name": "result"
+      }],
+      "name": "createToken"
+    },
+    {
+      "description": "清除Token",
+      "params": [],
+      "concept": "Logic",
+      "overridable": true,
+      "returns": [{
+        "description": "",
+        "concept": "Return",
+        "typeAnnotation": {
+          "concept": "TypeAnnotation",
+          "typeKind": "primitive",
+          "typeNamespace": "nasl.core",
+          "typeName": "Boolean"
+        },
+        "name": "result"
+      }],
+      "name": "removeToken"
+    }
+  ],
+  "structures": [{
+    "description": "System built in generic class LCAPUser",
+    "concept": "Structure",
+    "name": "LCAPUser",
+    "properties": [
+      {
+        "required": true,
+        "concept": "StructureProperty",
+        "typeAnnotation": {
+          "concept": "TypeAnnotation",
+          "typeKind": "primitive",
+          "typeNamespace": "nasl.core",
+          "typeName": "String"
+        },
+        "name": "userId"
+      },
+      {
+        "required": true,
+        "concept": "StructureProperty",
+        "typeAnnotation": {
+          "concept": "TypeAnnotation",
+          "typeKind": "primitive",
+          "typeNamespace": "nasl.core",
+          "typeName": "String"
+        },
+        "name": "userName"
+      },
+      {
+        "required": false,
+        "concept": "StructureProperty",
+        "typeAnnotation": {
+          "typeArguments": [
+            {
+              "concept": "TypeAnnotation",
+              "typeKind": "primitive",
+              "typeNamespace": "nasl.core",
+              "typeName": "String"
+            },
+            {
+              "concept": "TypeAnnotation",
+              "typeKind": "primitive",
+              "typeNamespace": "nasl.core",
+              "typeName": "String"
+            }
+          ],
+          "concept": "TypeAnnotation",
+          "typeKind": "generic",
+          "typeNamespace": "nasl.collection",
+          "typeName": "Map"
+        },
+        "name": "extensionInfos"
+      }
+    ]
+  }]
+}

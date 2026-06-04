@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadRoleCustomizeService Mapper xml
+-->
+<mapper namespace="com.zngcxhy.warehousemanagementsys.repository.LoadRoleCustomizeServiceMapper">
+
+    <resultMap id="AnonymousStructure_CAC5152BAE2C91DD609E3DFEE343ACC6" type="com.zngcxhy.warehousemanagementsys.domain.structure.anonymous.AnonymousStructure_70791B893F53C2EFB9E501591763B020">
+	<id column="T1_C1" property="lCAPRole.id"/>
+	<result column="T1_C2" property="lCAPRole.createdTime"/>
+	<result column="T1_C3" property="lCAPRole.updatedTime"/>
+	<result column="T1_C4" property="lCAPRole.createdBy"/>
+	<result column="T1_C5" property="lCAPRole.updatedBy"/>
+	<result column="T1_C6" property="lCAPRole.uuid"/>
+	<result column="T1_C7" property="lCAPRole.name"/>
+	<result column="T1_C8" property="lCAPRole.description"/>
+	<result column="T1_C9" property="lCAPRole.roleStatus"/>
+	<result column="T1_C10" property="lCAPRole.editable"/>
+</resultMap>
+<select id="getAnonymousStructure_CAC5152BAE2C91DD609E3DFEE343ACC6" resultMap="AnonymousStructure_CAC5152BAE2C91DD609E3DFEE343ACC6">
+	 SELECT `lcap_role_6568a7`.`id` `T1_C1`,`lcap_role_6568a7`.`created_time` `T1_C2`,`lcap_role_6568a7`.`updated_time` `T1_C3`,`lcap_role_6568a7`.`created_by` `T1_C4`,`lcap_role_6568a7`.`updated_by` `T1_C5`,`lcap_role_6568a7`.`uuid` `T1_C6`,`lcap_role_6568a7`.`name` `T1_C7`,`lcap_role_6568a7`.`description` `T1_C8`,`lcap_role_6568a7`.`role_status` `T1_C9`,`lcap_role_6568a7`.`editable` `T1_C10` FROM `lcap_role_6568a7` 
+<if test=" 1==1 ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`lcap_role_6568a7`.`id` != 2748654808204800
+</trim>
+</if> 
+<if test=" 1==1 ">
+	 LIMIT ${( 1000 * ( 1 - 1 ) )}, ${1000}
+</if>
+</select>
+<select id="countAnonymousStructure_CAC5152BAE2C91DD609E3DFEE343ACC6" resultType="java.lang.Long">
+	SELECT COUNT(*) FROM `lcap_role_6568a7` 
+<if test=" 1==1 ">
+	
+<trim prefix = "WHERE" prefixOverrides = "and |or">
+	`lcap_role_6568a7`.`id` != 2748654808204800
+</trim>
+</if>
+</select>
+
+
+</mapper>
